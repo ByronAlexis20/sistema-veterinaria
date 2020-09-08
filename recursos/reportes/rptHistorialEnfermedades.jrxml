@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.11.0.final using JasperReports Library version 6.11.0-0c4056ccaa4d25a5a8c45672d2f764ea3498bebb  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rptHistorialEnfermedades" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ab6a6432-5cd7-4a78-a59a-1e58087cbbce">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="conexion veterinaria"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="0"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="1000"/>
+	<parameter name="FECHA_INICIO" class="java.util.Date"/>
+	<parameter name="FECHA_FIN" class="java.util.Date"/>
+	<parameter name="EMPRESA" class="java.lang.String"/>
+	<parameter name="DIRECCION" class="java.lang.String"/>
+	<parameter name="EMAIL" class="java.lang.String"/>
+	<parameter name="RUC" class="java.lang.String"/>
+	<parameter name="TITULO" class="java.lang.String"/>
+	<parameter name="ID_TIPO_MASCOTA" class="java.lang.Integer"/>
+	<parameter name="ID_MASCOTA" class="java.lang.Integer"/>
+	<queryString>
+		<![CDATA[select (cl.nombre || ' ' || cl.apellido) as duenio,ma.id_mascota, ma.nombre as nombre_mascota,date_part('year',age(ma.fecha_nacimiento)) as anios,
+NULLIF(ra.descripcion,'') as raza_mascota,NULLIF(tm.descripcion,'') as tipo_mascota,
+en.nombre as enfermedad,en.descripcion as descripcion_enfermedad,co.fecha
+from consulta co,consulta_detalle cd,enfermedad en, cliente_mascota cm, mascota ma,cliente cl,raza ra, tipo_mascota tm
+where co.id_cliente_mascota = cm.id_cliente_mascota and cm.id_mascota = ma.id_mascota
+and co.id_consulta = cd.id_consulta and cm.id_cliente = cl.id_cliente and
+ma.id_raza = ra.id_raza and tm.id_tipo_mascota = ra.id_tipo_mascota
+and cd.id_enfermedad = en.id_enfermedad 
+and tm.id_tipo_mascota=$P{ID_TIPO_MASCOTA}  and ma.id_mascota=$P{ID_MASCOTA} 
+and co.fecha between  $P{FECHA_INICIO}  and $P{FECHA_FIN}]]>
+	</queryString>
+	<field name="duenio" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="duenio"/>
+	</field>
+	<field name="id_mascota" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="id_mascota"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="mascota"/>
+	</field>
+	<field name="nombre_mascota" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nombre_mascota"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="mascota"/>
+	</field>
+	<field name="anios" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="anios"/>
+	</field>
+	<field name="raza_mascota" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="raza_mascota"/>
+	</field>
+	<field name="tipo_mascota" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="tipo_mascota"/>
+	</field>
+	<field name="enfermedad" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="enfermedad"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="enfermedad"/>
+	</field>
+	<field name="descripcion_enfermedad" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="descripcion_enfermedad"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="enfermedad"/>
+	</field>
+	<field name="fecha" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.label" value="fecha"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="consulta"/>
+	</field>
+	<group name="mascota">
+		<groupExpression><![CDATA[$F{id_mascota}]]></groupExpression>
+		<groupHeader>
+			<band height="59">
+				<textField>
+					<reportElement x="280" y="0" width="100" height="20" uuid="97fd7261-d598-4c58-bd89-83fd19e7c87a"/>
+					<textFieldExpression><![CDATA[$F{nombre_mascota}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="30" y="0" width="90" height="20" uuid="63ad1939-c6aa-42f6-8068-f9f9b1df63d2"/>
+					<textFieldExpression><![CDATA[$F{tipo_mascota}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="150" y="0" width="100" height="20" uuid="dff23ae8-4070-42b9-ad20-a0861ea6d8df"/>
+					<textFieldExpression><![CDATA[$F{raza_mascota}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="500" y="0" width="44" height="20" uuid="af8fc363-7a7f-4983-990d-8621bd7e05c0"/>
+					<textFieldExpression><![CDATA[$F{anios}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="210" y="36" width="250" height="20" uuid="c94bc69a-b0d9-44bf-b491-1e819134e014">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b2af331d-20c7-4204-a32d-7763cc94959b"/>
+					</reportElement>
+					<text><![CDATA[Descripción de la enfermedad]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="30" y="36" width="160" height="20" uuid="c0dfee97-6f18-48b2-8e1b-8ef65e2559f6">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="135d962d-8ddb-4560-aa9b-0c514ec4919d"/>
+					</reportElement>
+					<text><![CDATA[Enfermedad]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="470" y="36" width="80" height="20" uuid="112ba72d-3142-4da8-8725-89df0f6e5b5e">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="89fbc29f-54ba-4b73-aad0-68a0fbe008e8"/>
+					</reportElement>
+					<text><![CDATA[Fecha]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="50"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="191" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="126" width="560" height="30" uuid="d5188e01-491c-4cb8-bec4-63f9b300867d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{TITULO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="96" width="450" height="20" uuid="c183e23e-7726-4ae8-b57c-df9b3c69873d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{RUC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="76" width="450" height="20" uuid="c98b79a2-d09e-4e0f-85fd-c2094f5f11e1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{EMAIL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="56" width="450" height="20" uuid="e627974e-17fb-4313-bbc4-b5df7cb9b37c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{DIRECCION}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="23" width="450" height="30" uuid="bf0c455b-dca2-42b8-8675-684b204c4de5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="18"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{EMPRESA}]]></textFieldExpression>
+			</textField>
+			<image scaleImage="FillFrame">
+				<reportElement x="1" y="36" width="99" height="80" uuid="0c061b35-32ff-4600-85d2-a4d3024d3e34"/>
+				<imageExpression><![CDATA["logo_veterinaria.jpg"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="50" y="157" width="117" height="30" uuid="5f24f3bc-1762-403f-9c5b-31b60396490d"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{FECHA_INICIO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="221" y="157" width="118" height="30" uuid="db97f1f8-ea87-499c-bb69-a98a34d36b2d"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{FECHA_FIN}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="2" y="159" width="48" height="27" uuid="648e4e1e-88ea-479e-a8de-056b65365c11"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[DESDE : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="170" y="159" width="50" height="27" uuid="03ac01e6-f71f-4c92-8d6e-370b1ac98b7c"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[HASTA :]]></text>
+			</staticText>
+			<textField pattern="MMM d, yyyy h:mm:ss a">
+				<reportElement x="400" y="0" width="160" height="20" uuid="5f690c17-dbf1-4470-a93a-601d2aae70df"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="30" y="0" width="160" height="20" uuid="43cfc758-2b5c-4697-8f7f-a8460b75be8d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="135d962d-8ddb-4560-aa9b-0c514ec4919d"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{enfermedad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="210" y="0" width="250" height="20" uuid="95612ece-8e5c-4dd9-aebb-03cbbf2c6443">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b2af331d-20c7-4204-a32d-7763cc94959b"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{descripcion_enfermedad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="470" y="0" width="80" height="20" uuid="63f0642b-2a6a-4eb0-8510-0569efacca1b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="89fbc29f-54ba-4b73-aad0-68a0fbe008e8"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

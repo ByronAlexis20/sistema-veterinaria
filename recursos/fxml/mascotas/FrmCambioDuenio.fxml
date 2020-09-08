@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="719.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.veterinaria.controlador.MascotaDuenioC">
+   <children>
+      <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="39.0" prefHeight="36.0" prefWidth="684.0" style="-fx-border-color: #bbc8d0; -fx-border-width: 1px; -fx-spacing: 8; -fx-background-radius: 6.0; -fx-max-height: 300">
+         <children>
+            <Button fx:id="btnAsignar" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#asignarDuenio" prefHeight="30.0" prefWidth="90.0" text="Asignar" textAlignment="RIGHT">
+               <HBox.margin>
+                  <Insets left="5.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="btnQuitar" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#quitarDuenio" prefHeight="30.0" prefWidth="90.0" text="Quitar" HBox.hgrow="ALWAYS">
+               <HBox.margin>
+                  <Insets left="5.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="87.0" prefHeight="46.0" prefWidth="684.0" style="-fx-border-color: #bbc8d0; -fx-border-width: 1px; -fx-spacing: 8; -fx-background-radius: 6.0; -fx-max-height: 300">
+         <children>
+            <Label text="Búsqueda por nombre mascota:">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="txtBuscar" prefHeight="25.0" prefWidth="325.0" />
+         </children>
+      </HBox>
+      <TableView fx:id="tvDatos" layoutX="14.0" layoutY="141.0" prefHeight="284.0" prefWidth="684.0" />
+      <Label layoutX="710.0" layoutY="418.0" prefHeight="17.0" prefWidth="18.0" />
+   </children>
+</AnchorPane>

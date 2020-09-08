@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.veterinaria.controlador.RazaListaC">
+   <children>
+      <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="39.0" prefHeight="36.0" prefWidth="570.0" style="-fx-border-color: #bbc8d0; -fx-border-width: 1px; -fx-spacing: 8; -fx-background-radius: 6.0; -fx-max-height: 300">
+         <children>
+            <Button fx:id="btnNuevo" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#nuevo" prefHeight="30.0" prefWidth="90.0" text="Nuevo" textAlignment="RIGHT">
+               <HBox.margin>
+                  <Insets left="5.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="btnEditar" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#editar" prefHeight="30.0" prefWidth="90.0" text="Editar" HBox.hgrow="ALWAYS">
+               <HBox.margin>
+                  <Insets left="5.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="btnEliminar" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#eliminar" prefHeight="30.0" prefWidth="90.0" text="Eliminar" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="87.0" prefHeight="46.0" prefWidth="570.0" style="-fx-border-color: #bbc8d0; -fx-border-width: 1px; -fx-spacing: 8; -fx-background-radius: 6.0; -fx-max-height: 300">
+         <children>
+            <Label text="Búsqueda por raza: ">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="txtBuscar" prefHeight="25.0" prefWidth="325.0" />
+         </children>
+      </HBox>
+      <TableView fx:id="tvDatos" layoutX="14.0" layoutY="141.0" prefHeight="284.0" prefWidth="570.0" />
+      <Label layoutX="601.0" layoutY="425.0" />
+   </children>
+</AnchorPane>

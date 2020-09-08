@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="746.0" prefWidth="685.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.veterinaria.controlador.ConsultaC">
+   <children>
+      <HBox layoutX="25.0" layoutY="103.0" prefHeight="200.0" prefWidth="306.0" style="-fx-border-color: #bbc8d0; -fx-border-width: 1px; -fx-background-radius: 6; -fx-max-height: 600; -fx-max-width: 1500; -fx-min-height: 10; -fx-min-width: 10">
+         <children>
+            <GridPane prefHeight="168.0" prefWidth="507.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label text="Cédula:" GridPane.columnIndex="1">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label text="Nombres:" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label text="Dirección:" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtCedulaCliente" GridPane.columnIndex="2" GridPane.columnSpan="2" />
+                  <TextField fx:id="txtNombresCliente" GridPane.columnIndex="2" GridPane.columnSpan="4" GridPane.rowIndex="1" />
+                  
+                        <Label text="Teléfono:" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtTelefonoCliente" prefHeight="25.0" prefWidth="183.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="3" />
+                  <Label text="Email:" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtEmailCliente" GridPane.columnIndex="2" GridPane.columnSpan="4" GridPane.rowIndex="4" />
+                  <TextField fx:id="txtDireccionCliente" GridPane.columnIndex="2" GridPane.columnSpan="4" GridPane.rowIndex="5" />
+                  <Button fx:id="btnBuscarCliente" mnemonicParsing="false" onAction="#buscarCliente" text="Buscar" GridPane.columnIndex="5" />
+                  <Label text="Apellidos:" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtApellidosCliente" GridPane.columnIndex="2" GridPane.columnSpan="4" GridPane.rowIndex="2" />
+               </children>
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="10.0" minWidth="10.0" prefWidth="10.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="84.0" minWidth="10.0" prefWidth="84.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="102.0" minWidth="10.0" prefWidth="34.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="102.0" minWidth="10.0" prefWidth="60.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="10.0" minWidth="10.0" prefWidth="10.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="83.0" minWidth="10.0" prefWidth="83.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="76.0" minWidth="10.0" prefWidth="42.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="10.0" minWidth="10.0" prefWidth="10.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+         </children>
+      </HBox>
+      <GridPane alignment="CENTER" layoutX="451.0" layoutY="670.0" prefHeight="45.0" prefWidth="197.0">
+         <children>
+            <Button fx:id="btnGrabar" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#grabar" prefHeight="45.0" prefWidth="85.0" text="Grabar" GridPane.columnIndex="1" />
+            <Button fx:id="btnNuevo" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#nuevo" prefHeight="45.0" prefWidth="85.0" text="Nuevo" GridPane.columnIndex="3" />
+         </children>
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="10.0" minWidth="10.0" prefWidth="10.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="10.0" minWidth="10.0" prefWidth="10.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints />
+         </rowConstraints>
+      </GridPane>
+      <Label layoutX="561.0" layoutY="338.0" prefHeight="17.0" prefWidth="16.0" />
+      <HBox layoutX="25.0" layoutY="9.0" prefHeight="74.0" prefWidth="306.0" style="-fx-border-color: #bbc8d0; -fx-border-width: 1px; -fx-background-radius: 6; -fx-max-height: 600; -fx-max-width: 1500; -fx-min-height: 10; -fx-min-width: 10">
+         <children>
+            <GridPane prefHeight="200.0" prefWidth="507.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label text="No Factura:" GridPane.columnIndex="1">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label text="Fecha:" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtNumeroFactura" GridPane.columnIndex="2" GridPane.columnSpan="2" />
+                  <Button fx:id="btnBuscarFactura" mnemonicParsing="false" onAction="#buscarFactura" text="Buscar" GridPane.columnIndex="5" />
+                  <DatePicker fx:id="dtpFecha" GridPane.columnIndex="2" GridPane.columnSpan="4" GridPane.rowIndex="1" />
+               </children>
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="10.0" minWidth="10.0" prefWidth="10.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="84.0" minWidth="10.0" prefWidth="84.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="102.0" minWidth="10.0" prefWidth="34.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="102.0" minWidth="10.0" prefWidth="60.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="10.0" minWidth="10.0" prefWidth="10.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="83.0" minWidth="10.0" prefWidth="83.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="76.0" minWidth="10.0" prefWidth="42.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="10.0" minWidth="10.0" prefWidth="10.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+         </children>
+      </HBox>
+      <HBox layoutX="25.0" layoutY="343.0" prefHeight="135.0" prefWidth="306.0" style="-fx-border-color: #bbc8d0; -fx-border-width: 1px; -fx-background-radius: 6; -fx-max-height: 600; -fx-max-width: 1500; -fx-min-height: 10; -fx-min-width: 10">
+         <children>
+            <GridPane prefHeight="168.0" prefWidth="507.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label text="Código:" GridPane.columnIndex="1">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label text="Nombres:" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtCodigoMascota" GridPane.columnIndex="2" GridPane.columnSpan="2" />
+                  <TextField fx:id="txtNombresMascota" GridPane.columnIndex="2" GridPane.columnSpan="4" GridPane.rowIndex="1" />
+                  <Label text="Raza:" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtRazaMascota" prefHeight="25.0" prefWidth="183.0" GridPane.columnIndex="2" GridPane.columnSpan="4" GridPane.rowIndex="2" />
+                  <Label text="Tip. Mascota:" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtTipoMascota" GridPane.columnIndex="2" GridPane.columnSpan="4" GridPane.rowIndex="3" />
+                  <Button fx:id="btnBuscarMascota" mnemonicParsing="false" onAction="#buscarMascota" text="Buscar" GridPane.columnIndex="5" />
+               </children>
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="10.0" minWidth="10.0" prefWidth="10.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="10.0" prefWidth="90.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="102.0" minWidth="10.0" prefWidth="16.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="102.0" minWidth="10.0" prefWidth="60.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="10.0" minWidth="10.0" prefWidth="10.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="83.0" minWidth="10.0" prefWidth="83.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="76.0" minWidth="10.0" prefWidth="42.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="10.0" minWidth="10.0" prefWidth="10.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+         </children>
+      </HBox>
+      <HBox layoutX="343.0" layoutY="72.0" prefHeight="143.0" prefWidth="306.0" style="-fx-border-color: #bbc8d0; -fx-border-width: 1px; -fx-background-radius: 6; -fx-max-height: 600; -fx-max-width: 1500; -fx-min-height: 10; -fx-min-width: 10">
+         <children>
+            <GridPane prefHeight="168.0" prefWidth="507.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label text="Cédula:" GridPane.columnIndex="1">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label text="Nombres:" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtCedulaVeterinario" GridPane.columnIndex="2" GridPane.columnSpan="2" />
+                  <TextField fx:id="txtNombresVeterinario" GridPane.columnIndex="2" GridPane.columnSpan="4" GridPane.rowIndex="1" />
+                  <Label text="Teléfono:" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtTelefonoVeterinario" prefHeight="25.0" prefWidth="183.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+                  <Label text="Profesión:" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtProfesionVeterinario" GridPane.columnIndex="2" GridPane.columnSpan="4" GridPane.rowIndex="3" />
+                  <Button fx:id="btnBuscarVeterinario" mnemonicParsing="false" onAction="#buscarVeterinario" text="Buscar" GridPane.columnIndex="5" />
+               </children>
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="10.0" minWidth="10.0" prefWidth="10.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="84.0" minWidth="10.0" prefWidth="84.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="102.0" minWidth="10.0" prefWidth="34.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="102.0" minWidth="10.0" prefWidth="60.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="10.0" minWidth="10.0" prefWidth="10.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="83.0" minWidth="10.0" prefWidth="83.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="76.0" minWidth="10.0" prefWidth="42.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="10.0" minWidth="10.0" prefWidth="10.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+         </children>
+      </HBox>
+      <Label layoutX="392.0" layoutY="41.0" text="Datos del  veterinario" />
+      <Label layoutX="24.0" layoutY="317.0" text="Datos de la mascota" />
+      <Label layoutX="24.0" layoutY="82.0" text="Datos del cliente" />
+      <TableView fx:id="tvDatosTratamiento" layoutX="7.0" layoutY="533.0" prefHeight="118.0" prefWidth="478.0" />
+      <TableView fx:id="tvDatosEnfermedad" layoutX="344.0" layoutY="345.0" prefHeight="133.0" prefWidth="304.0" />
+      <Label layoutX="349.0" layoutY="317.0" text="Enfermedades" />
+      <CheckBox fx:id="chkExamenFisico" layoutX="349.0" layoutY="246.0" mnemonicParsing="false" text="Examen Físico" />
+      <Label layoutX="24.0" layoutY="512.0" text="Tratamiento" />
+      <Button fx:id="btnAgregarEnfermedad" layoutX="477.0" layoutY="312.0" mnemonicParsing="false" onAction="#agregarEnfermedad" prefHeight="31.0" prefWidth="85.0" text="Agregar" />
+      <Button fx:id="btnQuitarEnfermedad" layoutX="570.0" layoutY="312.0" mnemonicParsing="false" onAction="#quitarEnfermedad" prefHeight="31.0" prefWidth="76.0" text="Quitar" />
+      <Button fx:id="btnQuitarTratamiento" layoutX="396.0" layoutY="496.0" mnemonicParsing="false" onAction="#quitarTratamiento" prefHeight="31.0" prefWidth="85.0" text="Quitar" />
+      <Button fx:id="btnAgregarTratamiento" layoutX="292.0" layoutY="496.0" mnemonicParsing="false" onAction="#agregarTratamiento" prefHeight="31.0" prefWidth="95.0" text="Agregar" />
+      <Label layoutX="48.0" layoutY="671.0" text="Tiempo de Tratamiento (dias):" />
+      <TextField fx:id="txtTiempoTratamiento" layoutX="268.0" layoutY="666.0" prefHeight="25.0" prefWidth="76.0" />
+      <HBox layoutX="509.0" layoutY="532.0" prefHeight="120.0" prefWidth="137.0" style="-fx-border-color: #bbc8d0; -fx-border-width: 1px; -fx-background-radius: 6; -fx-max-height: 600; -fx-max-width: 1500; -fx-min-height: 10; -fx-min-width: 10">
+         <children>
+            <GridPane prefHeight="168.0" prefWidth="507.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label text="Total:" GridPane.columnIndex="1">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtTotalConsulta" GridPane.columnIndex="2" />
+               </children>
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="10.0" minWidth="10.0" prefWidth="10.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="84.0" minWidth="10.0" prefWidth="38.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="80.0" minWidth="10.0" prefWidth="77.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="10.0" minWidth="10.0" prefWidth="10.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+         </children>
+      </HBox>
+      <Label layoutX="509.0" layoutY="511.0" text="Total consulta" />
+   </children>
+</AnchorPane>

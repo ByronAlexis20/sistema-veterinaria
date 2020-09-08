@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="448.0" prefWidth="527.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.veterinaria.controlador.ReportesC">
+   <children>
+      <Accordion layoutX="18.0" layoutY="37.0" prefHeight="397.0" prefWidth="529.0">
+        <panes>
+          <TitledPane animated="false" text="Listado de clientes">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="btnVisualizarCliente" layoutX="209.0" layoutY="32.0" mnemonicParsing="false" onAction="#visualizarCliente" prefHeight="25.0" prefWidth="110.0" text="Imprimir" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </TitledPane>
+            <TitledPane animated="false" text="Listado de mascotas">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="btnVisualizarMascota" layoutX="209.0" layoutY="47.0" mnemonicParsing="false" onAction="#visualizarMascota" prefHeight="25.0" prefWidth="110.0" text="Visualizar" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </TitledPane>
+            <TitledPane animated="false" text="Consultas realizadas por veterinario">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <DatePicker fx:id="dtpInicioConsultaVeterinario" layoutX="308.0" layoutY="24.0" />
+                        <DatePicker fx:id="dtpFinConsultaVeterinario" layoutX="308.0" layoutY="66.0" />
+                        <Button fx:id="btnVisualizarConsultaVeterinario" layoutX="209.0" layoutY="108.0" mnemonicParsing="false" onAction="#visualizarConsultaVeterinario" prefHeight="25.0" prefWidth="110.0" text="Imprimir" />
+                        <Label layoutX="264.0" layoutY="28.0" text="Desde:" />
+                        <Label layoutX="264.0" layoutY="70.0" text="Hasta:" />
+                        <ComboBox fx:id="cboVeterinario" layoutX="33.0" layoutY="41.0" prefHeight="25.0" prefWidth="201.0" />
+                        <Label layoutX="33.0" layoutY="24.0" text="Seleccione veterinario" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </TitledPane>
+            <TitledPane animated="false" text="Consultas realizadas por tipo de mascota">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="266.0" layoutY="78.0" text="Hasta:" />
+                        <Label layoutX="264.0" layoutY="34.0" text="Desde:" />
+                        <DatePicker fx:id="dtpFinConsultaMascota" layoutX="316.0" layoutY="74.0" />
+                        <DatePicker fx:id="dtpInicioConsultaMascota" layoutX="316.0" layoutY="30.0" />
+                        <Label layoutX="24.0" layoutY="35.0" text="Seleccione tipo de mascota" />
+                        <ComboBox fx:id="cboTipoMascota" layoutX="24.0" layoutY="52.0" prefHeight="25.0" prefWidth="201.0" />
+                        <Button fx:id="btnVisualizarConsultaMascota" layoutX="199.0" layoutY="105.0" mnemonicParsing="false" onAction="#visualizarConsultaMascota" prefHeight="25.0" prefWidth="110.0" text="Imprimir" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </TitledPane>
+            <TitledPane animated="false" text="Estadistico Enfermedades ">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <DatePicker fx:id="dtpInicioEstadistico2" layoutX="19.0" layoutY="48.0" />
+                        <DatePicker fx:id="dtpFinEstadistico2" layoutX="267.0" layoutY="48.0" />
+                        <Label layoutX="34.0" layoutY="21.0" text="Desde:" />
+                        <Label layoutX="267.0" layoutY="21.0" text="Hasta:" />
+                        <Button fx:id="btnVisualizarEstadistico1" layoutX="192.0" layoutY="91.0" mnemonicParsing="false" onAction="#vizualizarEstadisticoEnfermedades" prefHeight="25.0" prefWidth="110.0" text="Visualizar" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </TitledPane>
+            <TitledPane animated="false" text="Estadistico de consultas medicas por veterinario">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="btnVisualizarEstadistico" layoutX="209.0" layoutY="86.0" mnemonicParsing="false" onAction="#visualizarEstadistico" prefHeight="25.0" prefWidth="110.0" text="Visualizar" />
+                        <Label layoutX="278.0" layoutY="15.0" text="Hasta:" />
+                        <Label layoutX="35.0" layoutY="15.0" text="Desde:" />
+                        <DatePicker fx:id="dtpFinEstadistico" layoutX="275.0" layoutY="42.0" />
+                        <DatePicker fx:id="dtpInicioEstadistico" layoutX="21.0" layoutY="43.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </TitledPane>
+            <TitledPane animated="false" text="Historial de enfermedades de mascotas por año">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="163.0" prefWidth="527.0">
+                     <children>
+                        <DatePicker fx:id="dtpInicioHistorial" layoutX="295.0" layoutY="28.0" />
+                        <DatePicker fx:id="dtpFinHistorial" layoutX="295.0" layoutY="74.0" />
+                        <Button fx:id="btnVisualizarHistorial" layoutX="361.0" layoutY="124.0" mnemonicParsing="false" onAction="#imprimirHistorial" prefHeight="25.0" prefWidth="110.0" text="Visualizar" />
+                        <Label layoutX="241.0" layoutY="33.0" text="Desde:" />
+                        <Label layoutX="243.0" layoutY="79.0" text="Hasta:" />
+                        <ComboBox fx:id="cboTipoMascota2" layoutX="14.0" layoutY="30.0" onAction="#cargarMascotasPorTipoMascota" prefHeight="25.0" prefWidth="201.0" />
+                        <Label layoutX="14.0" layoutY="8.0" text="Seleccione tipo de mascota" />
+                        <ComboBox fx:id="cbo_nombreMascota" layoutX="14.0" layoutY="100.0" prefHeight="25.0" prefWidth="201.0" />
+                        <Label layoutX="14.0" layoutY="69.0" text="Seleccione Mascota" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </TitledPane>
+        </panes>
+      </Accordion>
+      <Label alignment="CENTER" layoutY="4.0" prefHeight="17.0" prefWidth="564.0" text="REPORTES" textAlignment="CENTER">
+         <font>
+            <Font name="Arial" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="556.0" layoutY="420.0" />
+   </children>
+</AnchorPane>

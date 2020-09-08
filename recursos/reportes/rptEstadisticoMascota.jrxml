@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.11.0.final using JasperReports Library version 6.11.0-0c4056ccaa4d25a5a8c45672d2f764ea3498bebb  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rptEstadisticoMascota" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="13d70075-b2b8-430e-a575-9cfe28cf7ac5">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="conexion veterinaria"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<parameter name="FECHA_INICIO" class="java.util.Date"/>
+	<parameter name="FECHA_FIN" class="java.util.Date"/>
+	<parameter name="EMPRESA" class="java.lang.String"/>
+	<parameter name="RUC" class="java.lang.String"/>
+	<parameter name="DIRECCION" class="java.lang.String"/>
+	<parameter name="EMAIL" class="java.lang.String"/>
+	<parameter name="TITULO" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select v.id_veterinario,(v.nombres || ' ' || v.apellidos) as veterinario,
+(select count(*) from consulta c where c.id_veterinario = v.id_veterinario
+and c.fecha between  $P{FECHA_INICIO}  and  $P{FECHA_FIN} ) as cantidad
+from veterinario v
+where v.estado = 'A']]>
+	</queryString>
+	<field name="id_veterinario" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="id_veterinario"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="veterinario"/>
+	</field>
+	<field name="veterinario" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="veterinario"/>
+	</field>
+	<field name="cantidad" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="cantidad"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="174" splitType="Stretch">
+			<textField>
+				<reportElement x="110" y="0" width="450" height="30" uuid="7531db7f-b353-438f-a6b3-3a284b56359a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="18"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{EMPRESA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="30" width="450" height="20" uuid="70ae1203-6bee-49b1-a0a3-efdefbadcf8c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{DIRECCION}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="50" width="450" height="20" uuid="915763c5-2a4f-4ec4-af79-22eeedf8698c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{EMAIL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="70" width="450" height="20" uuid="e19da0ad-4066-4396-929e-3c7cd39148ef"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{RUC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="100" width="560" height="30" uuid="b83792e9-322d-4ca4-a0c3-20ca3fec15fd"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{TITULO}]]></textFieldExpression>
+			</textField>
+			<image scaleImage="FillFrame">
+				<reportElement x="1" y="10" width="99" height="80" uuid="98476f39-54cc-4eef-a422-6e64b64a3a68"/>
+				<imageExpression><![CDATA["logo_veterinaria.jpg"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="47" y="130" width="117" height="30" uuid="1bd4c711-97d5-4b0e-bb2b-34be44f3a259"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{FECHA_INICIO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="218" y="130" width="118" height="30" uuid="5e715e9b-c507-4c38-b958-cd0f7b69b9d5"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{FECHA_FIN}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-1" y="132" width="48" height="27" uuid="ce22e985-e4da-4596-87ee-ae1d7556f26a"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[DESDE : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="167" y="132" width="50" height="27" uuid="f71f0043-82a9-4b20-abba-f3f633af9d4a"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[HASTA :]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="220" splitType="Stretch">
+			<barChart>
+				<chart evaluationTime="Report">
+					<reportElement x="90" y="5" width="410" height="215" uuid="4904a156-8f89-457d-90fc-c093d7b70ab6"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<dataset resetType="Report"/>
+					<categorySeries>
+						<seriesExpression><![CDATA[$F{veterinario}]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{cantidad}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{cantidad}]]></valueExpression>
+						<labelExpression><![CDATA[$F{veterinario}]]></labelExpression>
+					</categorySeries>
+				</categoryDataset>
+				<barPlot>
+					<plot/>
+					<itemLabel/>
+					<categoryAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</valueAxisFormat>
+				</barPlot>
+			</barChart>
+		</band>
+	</summary>
+</jasperReport>

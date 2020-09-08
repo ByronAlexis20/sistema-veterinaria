@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.10.0.final using JasperReports Library version 6.10.0-unknown  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="prueba" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d3c89273-57ef-4cd6-80f4-04883d562ca2">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="conexion veterinaria"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<queryString>
+		<![CDATA[select * from raza]]>
+	</queryString>
+	<field name="id_raza" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="id_raza"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="raza"/>
+	</field>
+	<field name="id_tipo_mascota" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="id_tipo_mascota"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="raza"/>
+	</field>
+	<field name="descripcion" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="descripcion"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="raza"/>
+	</field>
+	<field name="estado" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="estado"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="raza"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="70" y="20" width="100" height="30" uuid="45e2bfa9-f24d-4b52-ba53-224ada8f45e9">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="967c9056-cc97-4498-8e96-8e6b0d3900d8"/>
+				</reportElement>
+				<text><![CDATA[descripcion]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="48" splitType="Stretch">
+			<textField>
+				<reportElement x="60" y="10" width="100" height="30" uuid="48c824d4-2e4c-4d67-a47e-147957ff7eec">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="967c9056-cc97-4498-8e96-8e6b0d3900d8"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{descripcion}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="sistema-veterinaria" transaction-type="RESOURCE_LOCAL">
+		<class>com.veterinaria.modelo.Cliente</class>
+		<class>com.veterinaria.modelo.ClienteMascota</class>
+		<class>com.veterinaria.modelo.Consulta</class>
+		<class>com.veterinaria.modelo.ConsultaDetalle</class>
+		<class>com.veterinaria.modelo.Empresa</class>
+		<class>com.veterinaria.modelo.Enfermedad</class>
+		<class>com.veterinaria.modelo.Mascota</class>
+		<class>com.veterinaria.modelo.Menu</class>
+		<class>com.veterinaria.modelo.Perfil</class>
+		<class>com.veterinaria.modelo.Permiso</class>
+		<class>com.veterinaria.modelo.Raza</class>
+		<class>com.veterinaria.modelo.TipoMascota</class>
+		<class>com.veterinaria.modelo.Usuario</class>
+		<class>com.veterinaria.modelo.Veterinario</class>
+		<properties>
+			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/VETERINARIA"/>
+			<property name="javax.persistence.jdbc.user" value="postgres"/>
+			<property name="javax.persistence.jdbc.password" value="tricampeon2015"/>
+			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+		</properties>
+	</persistence-unit>
+</persistence>

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.10.0.final using JasperReports Library version 6.10.0-unknown  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rptListaMascota" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="64d9b7f7-7fa8-4d95-99bf-638e54238c53">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="conexion veterinaria"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<parameter name="EMPRESA" class="java.lang.String"/>
+	<parameter name="DIRECCION" class="java.lang.String"/>
+	<parameter name="EMAIL" class="java.lang.String"/>
+	<parameter name="RUC" class="java.lang.String"/>
+	<parameter name="TITULO" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select NULLIF(m.nombre,'') as nombre_mascota, NULLIF(r.descripcion,'') as raza_mascota,
+NULLIF(t.descripcion,'') as tipo_mascota, date_part('year',age(m.fecha_nacimiento)) as anios,
+NULLIF((select (cl.nombre || ' ' || cl.apellido) from cliente_mascota cm, cliente cl where cm.id_cliente = cl.id_cliente 
+and cl.estado = 'A' and cm.estado = 'A' and cm.id_mascota = m.id_mascota)
+,'') as duenio
+from mascota m, raza r, tipo_mascota t
+where m.id_raza = r.id_raza and t.id_tipo_mascota = r.id_tipo_mascota
+order by t.descripcion]]>
+	</queryString>
+	<field name="nombre_mascota" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nombre_mascota"/>
+	</field>
+	<field name="raza_mascota" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="raza_mascota"/>
+	</field>
+	<field name="tipo_mascota" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="tipo_mascota"/>
+	</field>
+	<field name="anios" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="anios"/>
+	</field>
+	<field name="duenio" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="duenio"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="140" splitType="Stretch">
+			<textField>
+				<reportElement x="110" y="0" width="450" height="30" uuid="8b3917ff-b310-4443-9a95-078495487aca"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="18"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{EMPRESA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="30" width="450" height="20" uuid="fcdccac6-f5ba-47b2-b2aa-c976e138cc56"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{DIRECCION}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="50" width="450" height="20" uuid="6877f768-9737-4d84-abef-6133b4d5f4fb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{EMAIL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="70" width="450" height="20" uuid="6ade2798-17d3-4ec7-b87b-1cc7beafe74c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{RUC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="100" width="560" height="30" uuid="ddddd3b4-ddf9-4c9a-b50d-5b54a5de9361"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{TITULO}]]></textFieldExpression>
+			</textField>
+			<image scaleImage="FillFrame">
+				<reportElement x="1" y="10" width="99" height="80" uuid="02c6094b-1546-41ea-b448-5850f66961fa"/>
+				<imageExpression><![CDATA["logo_veterinaria.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement x="20" y="0" width="90" height="20" uuid="336dfe7d-d5f1-47db-aaf8-832117cd1d76">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="95c571b8-9017-428f-a1c9-ad353dcab0a9"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tipo de mascota]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="120" y="0" width="100" height="20" uuid="628bc8cd-1678-48f4-ad23-166e73b8c499">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0a881a10-80fc-47e3-98c2-68238b6cc83a"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Raza]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="227" y="0" width="133" height="20" uuid="e3512d73-338d-40e6-a175-905bc184747a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ea56b1a7-c8e0-45b3-a252-553d761a9bb4"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre de mascota]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="366" y="0" width="44" height="20" uuid="7443e561-25bf-498c-b673-a7627516ae70">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c3c6fb9f-5bcc-43c6-b1f6-793f56d5dd93"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Edad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="416" y="0" width="134" height="20" uuid="ac517fdc-58da-4794-95ca-4d434947a08c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1857632d-aaf3-4e0f-a594-909c0a8e6a8f"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Dueño]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="20" y="0" width="90" height="20" uuid="a4886166-a05c-47c5-85f5-9d2088fdc942">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="95c571b8-9017-428f-a1c9-ad353dcab0a9"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{tipo_mascota}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="120" y="0" width="100" height="20" uuid="ee1079c8-76f5-47bb-88d6-c37c63fdd5be">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0a881a10-80fc-47e3-98c2-68238b6cc83a"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{raza_mascota}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="226" y="0" width="134" height="20" uuid="c15401f9-e154-41ac-bda3-5cb579444cc0">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ea56b1a7-c8e0-45b3-a252-553d761a9bb4"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{nombre_mascota}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="366" y="0" width="44" height="20" uuid="66e2a8e2-c5e1-4e8b-a82e-2586636364f7">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c3c6fb9f-5bcc-43c6-b1f6-793f56d5dd93"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{anios}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="416" y="0" width="134" height="20" uuid="9c7e99cf-363d-4208-bc6b-75039c6eae7e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1857632d-aaf3-4e0f-a594-909c0a8e6a8f"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{duenio}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

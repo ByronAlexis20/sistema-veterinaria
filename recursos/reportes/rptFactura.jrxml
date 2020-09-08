@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.10.0.final using JasperReports Library version 6.10.0-unknown  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rptFactura" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f4fe0c18-b494-4a24-b44d-33f1428d7736">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="conexion veterinaria"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="302"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="687"/>
+	<parameter name="NO_FACTURA" class="java.lang.String"/>
+	<parameter name="EMPRESA" class="java.lang.String"/>
+	<parameter name="DIRECCION" class="java.lang.String"/>
+	<parameter name="TELEFONO" class="java.lang.String"/>
+	<parameter name="CORREO" class="java.lang.String"/>
+	<parameter name="TOTAL" class="java.lang.String"/>
+	<parameter name="TRATAMIENTO" class="java.lang.String"/>
+	<parameter name="ID_CONSULTA" class="java.lang.Integer"/>
+	<parameter name="FECHA" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select e.nombre,e.descripcion from consulta_detalle d,enfermedad e where id_consulta = $P{ID_CONSULTA}   and 
+e.estado = 'A' and d.estado = 'A' and e.id_enfermedad = d.id_enfermedad]]>
+	</queryString>
+	<field name="nombre" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nombre"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="enfermedad"/>
+	</field>
+	<field name="descripcion" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="descripcion"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="enfermedad"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="89" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="370" y="0" width="171" height="30" forecolor="#FFFFFF" backcolor="#000000" uuid="741abcb2-fdb8-477b-a362-fb29ab6f40be"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Factura]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="370" y="33" width="171" height="25" uuid="50060903-7e23-451f-baab-aae9ad6a6855"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{NO_FACTURA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="87" y="13" width="280" height="20" uuid="66cbc0b8-580f-48fe-bf99-bd57b3d264a1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{EMPRESA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="87" y="33" width="280" height="20" uuid="eb5c341d-397f-4393-9733-850b4fbcae00"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{DIRECCION}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="87" y="53" width="280" height="20" uuid="a1ac1643-133f-465d-96ef-381973d67400"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{TELEFONO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="370" y="63" width="170" height="17" uuid="d4384e24-508d-4cae-bde9-e73f4fd4ffd9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{FECHA}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="370" y="0" width="171" height="80" backcolor="rgba(255, 255, 255, 0.019607844)" uuid="461b7a2d-f10d-4350-a098-01b5b2792458"/>
+			</rectangle>
+			<image scaleImage="FillFrame">
+				<reportElement x="1" y="10" width="79" height="70" uuid="2211bd9c-3491-40af-a458-48bf164d41b7"/>
+				<imageExpression><![CDATA["logo_veterinaria.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="21" splitType="Stretch">
+			<staticText>
+				<reportElement x="20" y="0" width="230" height="20" uuid="4dc058a1-32b2-4728-af33-b8b851cc69f2">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9e132a31-5794-4722-8f6c-98dde9c2ec3b"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri"/>
+				</textElement>
+				<text><![CDATA[Enfermedad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="260" y="0" width="290" height="20" uuid="51d8b52d-6f84-41be-900e-e9fc95a7d1d6">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="db462264-002a-4a23-8c5f-768a6770c52c"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Calibri"/>
+				</textElement>
+				<text><![CDATA[Descripción]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement x="20" y="0" width="230" height="20" uuid="3dda4c08-8c8a-47de-9c53-e8254abfe0ea">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9e132a31-5794-4722-8f6c-98dde9c2ec3b"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Calibri"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="260" y="0" width="290" height="20" uuid="2578b650-ec28-4a8e-9869-9a8cff080f33">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="db462264-002a-4a23-8c5f-768a6770c52c"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Calibri"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{descripcion}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="182" splitType="Stretch">
+			<staticText>
+				<reportElement x="360" y="20" width="100" height="20" uuid="16891523-c9e7-4c43-bcd1-f42bf8d35d41"/>
+				<textElement>
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<text><![CDATA[Total a pagar: $]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="460" y="20" width="90" height="20" uuid="63b04649-4631-4b91-a30e-a67728641eab"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{TOTAL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="20" y="20" width="260" height="162" uuid="f20ee4f0-28fc-454d-96ef-c679de32223c"/>
+				<textElement>
+					<font fontName="Calibri"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{TRATAMIENTO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="20" y="0" width="100" height="20" uuid="4ea684a9-fd0e-4fec-86b5-1cf175e19b14"/>
+				<textElement>
+					<font fontName="Calibri"/>
+				</textElement>
+				<text><![CDATA[Tratamiento:]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

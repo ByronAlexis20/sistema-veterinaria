@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.10.0.final using JasperReports Library version 6.10.0-unknown  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rptListaClientes" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ddbe3a35-5e6c-4273-a679-a6820686027d">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="conexion veterinaria"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<parameter name="EMPRESA" class="java.lang.String"/>
+	<parameter name="DIRECCION" class="java.lang.String"/>
+	<parameter name="EMAIL" class="java.lang.String"/>
+	<parameter name="RUC" class="java.lang.String"/>
+	<parameter name="TITULO" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select * from cliente where estado = 'A']]>
+	</queryString>
+	<field name="id_cliente" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="id_cliente"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="cliente"/>
+	</field>
+	<field name="cedula" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="cedula"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="cliente"/>
+	</field>
+	<field name="nombre" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nombre"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="cliente"/>
+	</field>
+	<field name="apellido" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="apellido"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="cliente"/>
+	</field>
+	<field name="email" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="email"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="cliente"/>
+	</field>
+	<field name="direccion" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="direccion"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="cliente"/>
+	</field>
+	<field name="telefono" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="telefono"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="cliente"/>
+	</field>
+	<field name="fecha_nacimiento" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.label" value="fecha_nacimiento"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="cliente"/>
+	</field>
+	<field name="usuario_crea" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="usuario_crea"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="cliente"/>
+	</field>
+	<field name="usuario_modifica" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="usuario_modifica"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="cliente"/>
+	</field>
+	<field name="fecha_creacion" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.label" value="fecha_creacion"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="cliente"/>
+	</field>
+	<field name="fecha_modifica" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.label" value="fecha_modifica"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="cliente"/>
+	</field>
+	<field name="estado" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="estado"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="cliente"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="179" splitType="Stretch">
+			<textField>
+				<reportElement x="110" y="0" width="450" height="30" uuid="1234bd1c-c592-4a4b-990a-cb5eff2ad2d5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="18"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{EMPRESA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="30" width="450" height="20" uuid="d6315c24-2abb-404e-81aa-aa9d1d7f34a1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{DIRECCION}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="50" width="450" height="20" uuid="9bb50ba8-421d-4b9a-bc13-77923de86b4a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{EMAIL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="70" width="450" height="20" uuid="9cfcd9a8-8c12-484d-869c-3dc814072c8d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{RUC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="100" width="560" height="30" uuid="d50b9523-ea0d-47ac-bca7-2a362554ae62"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{TITULO}]]></textFieldExpression>
+			</textField>
+			<image scaleImage="FillFrame">
+				<reportElement x="1" y="10" width="99" height="80" uuid="40992676-a166-4597-af1e-432c97e70158"/>
+				<imageExpression><![CDATA["logo_veterinaria.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="21" splitType="Stretch">
+			<staticText>
+				<reportElement x="10" y="0" width="70" height="20" uuid="63e3b7c1-7c19-4e1b-b383-e7b00292a911">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e0e66ebb-2887-44b3-87f2-114a6e74ebf3"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cédula]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="82" y="0" width="112" height="20" uuid="27a9d75d-8b60-40ec-b0cd-e8f72e7fdf39">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7533aaf9-e4bf-4bd2-81c6-75164f693ab0"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombres]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="0" width="130" height="20" uuid="d9ad3a81-11b6-456f-b778-a3c8eed2a3ee">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0fe5d015-fe31-4cce-8078-19210f0a7c07"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Apellidos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="335" y="0" width="75" height="20" uuid="dd1d3bd7-da61-424b-a8c0-1dbaae302921">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7d2cdd4c-ddfc-4b2f-b90c-2be37724b570"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Teléfono]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="420" y="0" width="124" height="20" uuid="55bc0319-23c2-4c9f-9463-ede1bb99bad5">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1be821ff-5695-4c1a-b043-d8dceb4a4d28"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Email]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement x="10" y="0" width="70" height="20" uuid="3bcb877f-2b6c-495c-940a-2a0f11db6226">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e0e66ebb-2887-44b3-87f2-114a6e74ebf3"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{cedula}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="82" y="0" width="112" height="20" uuid="4ecf26b6-7efc-4cdf-9c12-ce71c7a521cb">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7533aaf9-e4bf-4bd2-81c6-75164f693ab0"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="0" width="130" height="20" uuid="599fddeb-4136-40e7-a6d7-881f5f517817">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0fe5d015-fe31-4cce-8078-19210f0a7c07"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{apellido}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="335" y="0" width="75" height="20" uuid="e6310dfc-e0ca-4837-9f1a-9346ad3af8cf">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7d2cdd4c-ddfc-4b2f-b90c-2be37724b570"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{telefono}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="420" y="0" width="124" height="20" uuid="514284be-5a88-4d18-bfcd-6bdac5e63df2">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1be821ff-5695-4c1a-b043-d8dceb4a4d28"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
